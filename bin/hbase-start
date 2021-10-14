@@ -1,0 +1,1 @@
+docker run --rm -d -p 8080:8080 --volume "${PWD}/home:/mnt" --name hw2  adv-db/hbase
