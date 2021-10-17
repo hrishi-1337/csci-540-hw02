@@ -1,25 +1,20 @@
-##TODO
+include Java
 
-import java.io.IOException;
+import org.apache.hadoop.hbase.HBaseConfiguration
+import org.apache.hadoop.hbase.HColumnDescriptor
+import org.apache.hadoop.hbase.HConstants
+import org.apache.hadoop.hbase.HTableDescriptor
+import org.apache.hadoop.hbase.client.HBaseAdmin
+import org.apache.hadoop.hbase.client.HTable
+import org.apache.hadoop.io.Text
 
-import org.apache.hadoop.conf.Configuration;
-
-import org.apache.hadoop.hbase.HBaseConfiguration;
-import org.apache.hadoop.hbase.client.HTable;
-import org.apache.hadoop.hbase.client.Put;
-import org.apache.hadoop.hbase.util.Bytes;
-
-public class Create{
-
-   public static void main(String[] args) throws IOException {
-
-      Configuration con = HBaseConfiguration.create();
-      HBaseAdmin admin = new HBaseAdmin(con);
-      HTableDescriptor tableDescriptor = new
-      HTableDescriptor(TableName.valueOf("foods"));
-      tableDescriptor.addFamily(new HColumnDescriptor("personal"));
-      tableDescriptor.addFamily(new HColumnDescriptor("professional"));
-      admin.createTable(tableDescriptor);
-      System.out.println("Table created ");
-   }
-}
+conf = HBaseConfiguration.new
+tablename = "foods"
+desc = HTableDescriptor.new(tablename)
+desc.addFamily(HColumnDescriptor.new("fact"))
+admin = HBaseAdmin.new(conf)
+if admin.tableExists(tablename)
+   admin.disableTable(tablename)
+   admin.deleteTable(tablename)
+end
+admin.createTable(desc)
