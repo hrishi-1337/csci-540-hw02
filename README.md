@@ -31,7 +31,7 @@ stop:
 
 ## Create table
 
-	create 'foods', { NAME => 'fact',BLOOMFILTER => 'ROW',COMPRESSION => 'GZ', VERSIONS =>org.apache.hadoop.hbase.HConstants::ALL_VERSIONS}
+	hbase shell /mnt/part1/create.rb
 
 
 ## Load data:
