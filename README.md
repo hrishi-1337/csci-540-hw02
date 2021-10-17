@@ -2,11 +2,13 @@
 
 ## Data
 
-Go to File -> Options -> Advanced -> Editing Section
+- Open 'Food_Display_Table' in excel
 
-Uncheck the “Use system separators” setting and put a comma in the “Decimal Separator” field.
+- Go to File -> Options -> Advanced -> Editing Section
 
-Save Food_Display_Table excel file as CSV UTF-8 File. Resulting file will be semi-colon seperated.
+- Uncheck the “Use system separators” setting and put a comma in the “Decimal Separator” field.
+
+- Save 'Food_Display_Table' excel file as 'CSV UTF-8' file. Resulting file will be semi-colon seperated.
 
 ## Running
 
