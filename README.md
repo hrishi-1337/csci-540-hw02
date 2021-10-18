@@ -2,13 +2,13 @@
 
 ## Data
 
-- Open 'Food_Display_Table' in excel
+- Open 'Food_Display_Table' and 'Foods_Needing_Condiments_Table' in excel
 
 - Go to File -> Options -> Advanced -> Editing Section
 
 - Uncheck the “Use system separators” setting and put a comma in the “Decimal Separator” field.
 
-- Save 'Food_Display_Table' excel file as 'CSV UTF-8' file. Resulting file will be semi-colon seperated.
+- Save them in 'CSV UTF-8' format. Resulting files will be semi-colon seperated.
 
 ## Running
 
@@ -28,19 +28,40 @@ stop:
 
 	docker stop hw2
 
+## Part 1:
 
-## Create table
+Run below commands in bash
+
+### Create table
 
 	hbase shell /mnt/part1/create.rb
 
 
-## Load data:
+### Load data:
 
 	hbase shell /mnt/part1/load.rb
 
 
-## Queries:
+### Queries:
 
 	hbase shell /mnt/part1/queries.rb
 
 	get 'foods', '13110120', 'fact'
+
+## Part 2:
+
+### Create table
+
+	hbase shell /mnt/part2/create.rb
+
+
+### Load data:
+
+	hbase shell /mnt/part2/load.rb
+
+
+### Queries:
+
+	hbase shell /mnt/part2/queries.rb
+
+	<!-- get 'condiments', '13110120', 'fact' -->
