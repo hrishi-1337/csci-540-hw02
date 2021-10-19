@@ -44,7 +44,7 @@ def put_into_hbase(document, food_number)
   table.setAutoFlush(false)
   document.each do |key, value|
     if !value.empty?
-      rowkey = document['Food_Code'].to_java_bytes
+      rowkey = document['Display_Name'].to_java_bytes
       ts = food_number
       p = Put.new(rowkey, ts)
       p.add(*jbytes("fact", key, value))
@@ -59,9 +59,9 @@ count = 1
 seen_before = {}
 File.open('/mnt/data/Food_Display_Table.csv').each_line do |row|
   data = parse_row(row.strip!)
-  if !seen_before.has_key?(data['Food_Code'])
+  if !seen_before.has_key?(data['Display_Name'])
     count = 1
-    seen_before[data['Food_Code']] = true
+    seen_before[data['Display_Name']] = true
   end
   put_into_hbase(data, count)
   count += 1

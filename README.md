@@ -46,8 +46,6 @@ Run below commands in bash
 
 	hbase shell /mnt/part1/queries.rb
 
-	get 'foods', '13110120', 'fact'
-
 ## Part 2:
 
 ### Create table
@@ -63,5 +61,3 @@ Run below commands in bash
 ### Queries:
 
 	hbase shell /mnt/part2/queries.rb
-
-	<!-- get 'condiments', '13110120', 'fact' -->
