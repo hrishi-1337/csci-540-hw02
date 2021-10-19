@@ -11,7 +11,10 @@ import org.apache.hadoop.io.Text
 conf = HBaseConfiguration.new
 tablename = "foods"
 desc = HTableDescriptor.new(tablename)
-desc.addFamily(HColumnDescriptor.new("fact"))
+desc.addFamily(HColumnDescriptor.new("identifiers"))
+desc.addFamily(HColumnDescriptor.new("portions"))
+desc.addFamily(HColumnDescriptor.new("contents"))
+desc.addFamily(HColumnDescriptor.new("macros"))
 admin = HBaseAdmin.new(conf)
 if admin.tableExists(tablename)
    admin.disableTable(tablename)

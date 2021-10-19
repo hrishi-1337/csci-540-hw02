@@ -44,7 +44,7 @@ Run below commands in bash
 
 ### Queries:
 
-	hbase shell /mnt/part1/queries.rb
+	hbase shell /mnt/part1/query.rb
 
 ## Part 2:
 
@@ -60,4 +60,4 @@ Run below commands in bash
 
 ### Queries:
 
-	hbase shell /mnt/part2/queries.rb
+	hbase shell /mnt/part2/query.rb

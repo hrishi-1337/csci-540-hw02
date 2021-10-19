@@ -39,15 +39,25 @@ def parse_row(row)
   return map
 end
 
+
 def put_into_hbase(document, food_number)
   table = HTable.new(@hbase.configuration, 'foods')
   table.setAutoFlush(false)
+  column_families = ["identifiers", "portions", "contents", "macros"]
   document.each do |key, value|
     if !value.empty?
       rowkey = document['Display_Name'].to_java_bytes
       ts = food_number
       p = Put.new(rowkey, ts)
-      p.add(*jbytes("fact", key, value))
+      if key.eql?("Food_Code") or key.eql?("Display_Name")
+        p.add(*jbytes("identifiers", key, value))
+      elsif key.eql?("Portion_Default") or key.eql?("Portion_Amount") or key.eql?("Portion_Display_Name") or key.eql?("Factor") or key.eql?("Increment") or key.eql?("Multiplier")
+        p.add(*jbytes("portions", key, value))
+      elsif key.eql?("Grains") or key.eql?("Whole_Grains") or key.eql?("Vegetables") or key.eql?("Orange_Vegetables") or key.eql?("Drkgreen_Vegetables") or key.eql?("Starchy_vegetables") or key.eql?("Other_Vegetables") or key.eql?("Fruits") or key.eql?("Milk") or key.eql?("Meats") or key.eql?("Soy") or key.eql?("Drybeans_Peas") or key.eql?("Oils")
+        p.add(*jbytes("contents", key, value))
+      else
+        p.add(*jbytes("macros", key, value))
+      end
       table.put(p)
       puts food_number.to_s + ":" + key.to_s + ":" + value.to_s
     end
