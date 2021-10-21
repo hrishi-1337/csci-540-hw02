@@ -7,13 +7,7 @@ import org.apache.hadoop.hbase.filter.SubstringComparator;
 import org.apache.hadoop.hbase.filter.Filter;
 
 
-# scan 'foods', {ROWPREFIXFILTER => 'Ice', FILTER => SingleColumnValueFilter.new(Bytes.toBytes('identifiers'), Bytes.toBytes('Display_Name'),
-#     CompareFilter::CompareOp.valueOf('EQUAL'),SubstringComparator.new('Ice cream, rich')) }
+scan 'foods', {STARTROW => '12350000', ENDROW => '27510530', FILTER => SingleColumnValueFilter.new(Bytes.toBytes('identifiers'), Bytes.toBytes('Display_Name'),
+    CompareFilter::CompareOp.valueOf('EQUAL'),SubstringComparator.new('Chef salad'))}
 
 
-# scan 'foods', {STARTROW => 'Ice', ENDROW => 'Light', FILTER => SingleColumnValueFilter.new(Bytes.toBytes('identifiers'), Bytes.toBytes('Display_Name'),
-#     CompareFilter::CompareOp.valueOf('EQUAL'),SubstringComparator.new('Ice cream, rich'))}
-
-# get 'foods', 'Ice cream, rich', {COLUMN => 'macros'} 
-
-code = get 'foods', '58100100', {COLUMN => 'macros'} 

@@ -7,7 +7,8 @@ import org.apache.hadoop.hbase.filter.SubstringComparator;
 import org.apache.hadoop.hbase.filter.Filter;
 
 
+scan 'foods', {STARTROW => '12350000', ENDROW => '27510530', FILTER => SingleColumnValueFilter.new(Bytes.toBytes('identifiers'), Bytes.toBytes('Display_Name'),
+    CompareFilter::CompareOp.valueOf('EQUAL'),SubstringComparator.new('Chef salad'))}
 
-get 'foods', '58100100', {COLUMN => 'macros'} 
-
-get 'condiments', '58100100', {COLUMN => 'condiment'} 
+scan 'condiments', {STARTROW => '12350000', ENDROW => '27510530', FILTER => SingleColumnValueFilter.new(Bytes.toBytes('identifiers'), Bytes.toBytes('display_name'),
+    CompareFilter::CompareOp.valueOf('EQUAL'),SubstringComparator.new('Chef salad'))}
