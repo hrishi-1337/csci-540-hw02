@@ -39,15 +39,15 @@ if "condiment_2" != "Null"
     get 'foods', condiment_2, {COLUMN => 'identifiers:Display_Name'} 
     get 'foods', condiment_2, {COLUMN => 'macros'} 
 end
-if "condiment_2" != "Null"
+if "condiment_3" != "Null"
     get 'foods', condiment_3, {COLUMN => 'identifiers:Display_Name'} 
     get 'foods', condiment_3, {COLUMN => 'macros'} 
 end
-if "condiment_2" != "Null"
+if "condiment_4" != "Null"
     get 'foods', condiment_4, {COLUMN => 'identifiers:Display_Name'} 
     get 'foods', condiment_4, {COLUMN => 'macros'}
 end
-if "condiment_2" != "Null" 
+if "condiment_5" != "Null" 
     get 'foods', condiment_5, {COLUMN => 'identifiers:Display_Name'} 
     get 'foods', condiment_5, {COLUMN => 'macros'} 
 end
