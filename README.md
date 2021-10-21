@@ -10,6 +10,8 @@
 
 - Save them in 'CSV UTF-8' format. Resulting files will be semi-colon seperated.
 
+- Save the .csv files in /data folder within csci-540-hw02
+
 ## Running
 
 start:
