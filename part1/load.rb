@@ -46,7 +46,7 @@ def put_into_hbase(document, food_number)
   column_families = ["identifiers", "portions", "contents", "macros"]
   document.each do |key, value|
     if !value.empty?
-      rowkey = document['Display_Name'].to_java_bytes
+      rowkey = document['Food_Code'].to_java_bytes
       ts = food_number
       p = Put.new(rowkey, ts)
       if key.eql?("Food_Code") or key.eql?("Display_Name")
@@ -69,9 +69,9 @@ count = 1
 seen_before = {}
 File.open('/mnt/data/Food_Display_Table.csv').each_line do |row|
   data = parse_row(row.strip!)
-  if !seen_before.has_key?(data['Display_Name'])
+  if !seen_before.has_key?(data['Food_Code'])
     count = 1
-    seen_before[data['Display_Name']] = true
+    seen_before[data['Food_Code']] = true
   end
   put_into_hbase(data, count)
   count += 1

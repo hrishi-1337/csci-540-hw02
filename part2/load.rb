@@ -36,7 +36,7 @@ def put_into_hbase(document, food_number)
       if key.eql?("Survey_Food_Code") or key.eql?("display_name")
         p.add(*jbytes("identifier", key, value))
       else
-        p.add(*jbytes("condiments", key, value))
+        p.add(*jbytes("condiment", key, value))
       end
       table.put(p)
       puts food_number.to_s + ":" + key.to_s + ":" + value.to_s
